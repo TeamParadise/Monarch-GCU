@@ -63,7 +63,7 @@ public class OI
 		SmartDashboard.putData(new ClawOpen());
 
 		SmartDashboard.putData(new DriveStraightDistance(11 * 12));
-		
+
 //		SmartDashboard.putData(new RotaryLiftPosition(RotaryLift.ROTARY_LIFT_SWITCH, 0.15, 0.36));
 //		SmartDashboard.putData(new RotaryLiftPosition(RotaryLift.ROTARY_LIFT_SCALE, 0.2, 0.425));
 		
@@ -103,7 +103,7 @@ public class OI
 	public double getTwist()
 	{
 		if(mJoy.getRawButton(RobotMap.SLOW_TURN_BUTTON))
-			return dampen(mJoy.getTwist(), 6);
+			return constrain(mJoy.getTwist(), -0.5, 0.5);
 		else
 			return dampen(mJoy.getTwist(), 3);
 	}
@@ -138,7 +138,6 @@ public class OI
 	{
 		return mLowerWing.get();
 	}
-
 
 	// INPUT TRANSFORM
 

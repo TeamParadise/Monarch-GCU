@@ -1,7 +1,5 @@
 package org.usfirst.frc.team1165.robot;
 
-import org.usfirst.frc.team1165.robot.commands.auto.AutoCrossLineCenter;
-import org.usfirst.frc.team1165.robot.commands.auto.AutoCrossLineSide;
 import org.usfirst.frc.team1165.robot.commands.auto.AutoDriveStraight;
 import org.usfirst.frc.team1165.robot.commands.auto.AutoSwitch;
 import org.usfirst.frc.team1165.robot.subsystems.Claw;
@@ -14,6 +12,7 @@ import org.usfirst.frc.team1165.robot.subsystems.Wing;
 import org.usfirst.frc.team1165.util.GameData;
 import org.usfirst.frc.team1165.util.NavX;
 import org.usfirst.frc.team1165.util.Position;
+import org.usfirst.frc.team1165.util.PressureSensor;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -41,8 +40,11 @@ public class Robot extends TimedRobot
 	public static OI mOI = new OI();
 	
 	public static NavX mNavX = NavX.getInstance();
-
+	public static PressureSensor mPressureSensor = PressureSensor.getInstance();
+	
 	public static GameData mGameData = GameData.getInstance();
+	
+	
 	
 	private Command mAuto;
 //	private SendableChooser<Command> mAutoChooser = new SendableChooser<>();
@@ -84,6 +86,7 @@ public class Robot extends TimedRobot
 		mOI.report();
 		
 		mNavX.report();
+		mPressureSensor.report();
 	}
 
 	/**
